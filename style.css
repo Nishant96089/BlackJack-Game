@@ -129,6 +129,10 @@ p {
     margin-top: 20px;
     font-size: 28px;
   }
+
+  #cards-el{
+    color: darkgoldenrod;
+  }   
 }
 
   
