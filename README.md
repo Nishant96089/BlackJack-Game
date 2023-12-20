@@ -1,6 +1,6 @@
 Welcome to Blackjack!
 Made Using : HTML,CSS,Javascript.                                                                                                         
-Hosted Link : https://nishant96089.github.io/BlackJack-Game/
+
 
 Objective:
 Your goal is to build a hand with a total value as close to 21 as possible without going over.
