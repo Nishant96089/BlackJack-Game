@@ -35,7 +35,21 @@ alert("Chips:\n" +
   
   "Enjoy the game and good luck!");
   
-
+const cardImages = {
+  1: 'cards/ace.jpg',
+  2: 'cards/2.jpg',
+  3: 'cards/3.jpg',
+  4: 'cards/4.jpg',
+  5: 'cards/5.jpg',
+  6: 'cards/six.jpg',
+  7: 'cards/seven.jpg',
+  8: 'cards/8.jpg',
+  9: 'cards/9.jpg',
+  10:'cards/10.jpg',
+  11:'cards/J.jpg',
+  12:'cards/Q.jpg',
+  13:'cards/K.jpg'
+}
 
 
 let playerName = prompt("Please Enter Your Name :")
@@ -107,7 +121,22 @@ function gameLogic() {
   sumEl.textContent = "Sum : " + sum;
   cardsEl.textContent = "Cards : ";  // Outside the for loop bcoz we don't want 'Cards:' to repeat itself.
   for(let i=0; i<cards.length; i++){
-    cardsEl.textContent += cards[i] + " ";     
+    // cardsEl.textContent += cards[i] + " ";  
+    const cardValue = cards[i];
+    const cardImageUrl = cardImages[cardValue];
+
+    // Create an image element for each card
+    const cardImage = document.createElement('img');
+    cardImage.src = cardImageUrl;
+    cardImage.alt = `Card ${cardValue}`;
+
+     // Set the width and height of the card image to 100px
+     cardImage.style.width = '85px';
+     cardImage.style.height = '100px';
+     cardImage.style.margin = '5px';
+
+    // Append the image to cardsEl
+    cardsEl.appendChild(cardImage);   
   }
 
   if(sum <= 20){
@@ -131,6 +160,20 @@ function newCard() {
   if(isAlive === true && hasBlackJack === false){  // Setting condition such as New Card button operates according to the game logic.
   let card = randomCard();  // Calling the randomCard() function for a new card.
   sum += card;
+
+   // Create an image element for the new card
+   const cardImage = document.createElement('img');
+   cardImage.src = cardImages[card];
+   cardImage.alt = `Card ${card}`;
+
+  // Set the width and height of the card image to 100px
+    cardImage.style.width = '85px';
+    cardImage.style.height = '100px';
+    cardImage.style.margin = '5px';
+
+   // Append the image to cardsEl
+   cardsEl.appendChild(cardImage);
+
   cards.push(card);
   gameLogic()   //Calling gameLogic function with updated values.
   }
